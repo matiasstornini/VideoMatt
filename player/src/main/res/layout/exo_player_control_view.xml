@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/exo_controller_placeholder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/player_controls_background"
+    android:padding="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/exo_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_exo_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@id/exo_rew"
+        style="@style/ExoMediaButton"
+        android:layout_marginHorizontal="16dp"
+        android:src="@drawable/ic_exo_rewind"
+        app:layout_constraintBottom_toBottomOf="@id/playPauseButton"
+        app:layout_constraintEnd_toStartOf="@id/playPauseButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/playPauseButton" />
+
+    <com.arezoonazer.player.widget.PlayPauseControlButton
+        android:id="@+id/playPauseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/exo_ffwd"
+        app:layout_constraintStart_toEndOf="@id/exo_rew"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/replayButton"
+        style="@style/ExoMediaButton"
+        android:src="@drawable/ic_exo_replay"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@id/exo_ffwd"
+        style="@style/ExoMediaButton"
+        android:layout_marginHorizontal="16dp"
+        android:src="@drawable/ic_exo_forward"
+        app:layout_constraintBottom_toBottomOf="@id/playPauseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/playPauseButton"
+        app:layout_constraintTop_toTopOf="@id/playPauseButton" />
+
+    <com.arezoonazer.player.widget.MuteButton
+        android:id="@+id/muteButton"
+        style="@style/ExoMediaButton"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintBottom_toTopOf="@id/exo_progress"
+        app:layout_constraintEnd_toStartOf="@id/subtitleButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/subtitleButton"
+        style="@style/ExoMediaButton"
+        android:layout_marginHorizontal="8dp"
+        android:src="@drawable/ic_exo_subtitle"
+        android:tint="@color/disabled_button_color"
+        app:layout_constraintBottom_toTopOf="@id/exo_progress"
+        app:layout_constraintEnd_toStartOf="@id/qualityButton"
+        app:layout_constraintStart_toEndOf="@id/muteButton" />
+
+    <ImageButton
+        android:id="@+id/qualityButton"
+        style="@style/ExoMediaButton"
+        android:layout_marginHorizontal="8dp"
+        android:src="@drawable/ic_exo_quality"
+        android:tint="@color/disabled_button_color"
+        app:layout_constraintBottom_toTopOf="@id/exo_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/subtitleButton" />
+
+    <TextView
+        android:id="@id/exo_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="4dp"
+        android:textColor="#FFBEBEBE"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/exo_progress"
+        app:layout_constraintEnd_toStartOf="@id/exo_progress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/exo_progress" />
+
+    <androidx.media3.ui.DefaultTimeBar
+        android:id="@id/exo_progress"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        app:played_color="@color/primary_color"
+        app:scrubber_color="@color/primary_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/exo_duration"
+        app:layout_constraintStart_toEndOf="@id/exo_position" />
+
+    <TextView
+        android:id="@id/exo_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="4dp"
+        android:textColor="#FFBEBEBE"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/exo_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/exo_progress"
+        app:layout_constraintTop_toTopOf="@id/exo_progress" />
+</androidx.constraintlayout.widget.ConstraintLayout>

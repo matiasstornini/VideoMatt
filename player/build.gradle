@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 34
+    buildFeatures.viewBinding true
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$library.core"
+    implementation "androidx.appcompat:appcompat:$library.appcompat"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$library.kotlin"
+    implementation "androidx.activity:activity-ktx:$library.activity"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$library.lifecycle"
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.19.1'
+
+    implementation "androidx.media3:media3-exoplayer:$library.media3ExoPlayer"
+    implementation "androidx.media3:media3-ui:$library.media3ExoPlayer"
+    implementation "androidx.media3:media3-exoplayer-hls:$library.media3ExoPlayer"
+    implementation "androidx.media3:media3-exoplayer-dash:$library.media3ExoPlayer"
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$library.coordinatorlayout"
+    implementation "androidx.constraintlayout:constraintlayout:$library.constraintlayout"
+    implementation "androidx.recyclerview:recyclerview:$library.recyclerView"
+
+    implementation "com.google.dagger:hilt-android:$library.hilt"
+    kapt "com.google.dagger:hilt-compiler:$library.hilt"
+
+    testImplementation "junit:junit:$library.junit"
+    testImplementation "androidx.arch.core:core-testing:$library.coreTesting"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$library.mockito"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$library.coroutinesTest"
+}

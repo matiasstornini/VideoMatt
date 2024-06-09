@@ -1,0 +1,24 @@
+buildscript {
+    apply from: "$rootDir/version.gradle"
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$library.androidGradlePlugin"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$library.kotlin"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$library.hilt"
+        classpath 'com.google.gms:google-services:4.3.14' // Agrega esta línea
+    }
+
+    allprojects {
+        repositories {
+            google()
+            mavenCentral()
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
